@@ -138,6 +138,74 @@ function Index() {
             </div>
           </div>
         </section>
+
+        {/* Qualquer pessoa pode */}
+        <section className="mt-20">
+          <div className="mx-auto max-w-2xl text-center">
+            <p className="text-[15px] leading-relaxed text-muted-foreground">
+              Qualquer pessoa pode abrir uma live interativa no TikTok e receber moedas enquanto o
+              jogo roda sozinho.
+            </p>
+            <div className="mt-6 rounded-2xl border border-primary/25 bg-primary/[0.07] p-6">
+              <p className="text-3xl font-bold leading-tight sm:text-4xl">
+                Média de{" "}
+                <span className="text-brand-gradient">5.000 moedas por dia</span>
+              </p>
+              <p className="mt-2 text-lg font-medium text-foreground">
+                são equivalente a ~<span className="text-brand-gradient">R$180 diários</span>.
+              </p>
+              <p className="mt-4 text-sm font-medium uppercase tracking-[0.12em] text-muted-foreground">
+                Sem fazer nada. Literalmente.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        {/* Mar azul */}
+        <section className="mt-20">
+          <div className="mx-auto max-w-2xl rounded-2xl border border-border bg-card/60 p-8">
+            <span className="text-3xl">🌊</span>
+            <h2 className="mt-4 text-2xl font-bold leading-tight sm:text-3xl">
+              Mar azul - quase ninguém está fazendo isso
+            </h2>
+            <p className="mt-4 text-[15px] leading-relaxed text-muted-foreground">
+              Enquanto milhares de pessoas brigam por atenção criando conteúdo, uma minoria
+              silenciosa abre a live, liga o jogo e vai dormir, e acorda com dinheiro na conta.
+            </p>
+          </div>
+        </section>
+
+        {/* Quanto você pode ganhar */}
+        <section className="mt-20 text-center">
+          <h2 className="text-3xl font-bold leading-tight sm:text-4xl">
+            Quanto você pode ganhar <br />
+            <span className="text-brand-gradient">começando ainda hoje?</span>
+          </h2>
+          <p className="mx-auto mt-5 max-w-2xl text-[15px] leading-relaxed text-muted-foreground">
+            Cada presente enviado durante sua Live vira dinheiro real na sua conta. Os espectadores
+            enviam presentes para interagir com o jogo. Depois, você converte esses presentes em
+            saldo conforme as regras do TikTok. Veja alguns exemplos:
+          </p>
+
+          {/* Placeholder para exemplos/tabela */}
+          <div className="mt-10 grid grid-cols-1 gap-4 sm:grid-cols-3">
+            <div className="frame-glow rounded-2xl border border-border bg-card/50 p-6">
+              <p className="text-xs font-medium uppercase tracking-[0.14em] text-muted-foreground">
+                Exemplo 1
+              </p>
+            </div>
+            <div className="frame-glow rounded-2xl border border-border bg-card/50 p-6">
+              <p className="text-xs font-medium uppercase tracking-[0.14em] text-muted-foreground">
+                Exemplo 2
+              </p>
+            </div>
+            <div className="frame-glow rounded-2xl border border-border bg-card/50 p-6">
+              <p className="text-xs font-medium uppercase tracking-[0.14em] text-muted-foreground">
+                Exemplo 3
+              </p>
+            </div>
+          </div>
+        </section>
       </div>
     </main>
   );
