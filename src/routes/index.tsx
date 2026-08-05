@@ -190,23 +190,15 @@ function Index() {
             saldo conforme as regras do TikTok. Veja alguns exemplos:
           </p>
 
-          {/* Placeholder para exemplos/tabela */}
-          <div className="mt-10 grid grid-cols-1 gap-4 sm:grid-cols-3">
-            <div className="frame-glow rounded-2xl border border-border bg-card/50 p-6">
-              <p className="text-xs font-medium uppercase tracking-[0.14em] text-muted-foreground">
-                Exemplo 1
-              </p>
-            </div>
-            <div className="frame-glow rounded-2xl border border-border bg-card/50 p-6">
-              <p className="text-xs font-medium uppercase tracking-[0.14em] text-muted-foreground">
-                Exemplo 2
-              </p>
-            </div>
-            <div className="frame-glow rounded-2xl border border-border bg-card/50 p-6">
-              <p className="text-xs font-medium uppercase tracking-[0.14em] text-muted-foreground">
-                Exemplo 3
-              </p>
-            </div>
+          {/* Tabela de presentes */}
+          <div className="frame-glow overflow-hidden rounded-2xl border border-primary/30 bg-card">
+            <img
+              src={presentesAsset.url}
+              alt="Tabela com os principais presentes do TikTok Live e seus valores em reais"
+              width={1080}
+              height={1440}
+              className="w-full"
+            />
           </div>
         </section>
       </div>
