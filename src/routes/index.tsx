@@ -145,18 +145,37 @@ function Index() {
 
         {/* Qualquer pessoa pode */}
         <section className="mt-20">
-          <div className="mx-auto max-w-2xl text-center">
-            <p className="text-[15px] leading-relaxed text-muted-foreground">
+          <div className="mx-auto max-w-3xl text-center">
+            <p className="mx-auto max-w-2xl text-[15px] leading-relaxed text-muted-foreground">
               Qualquer pessoa pode abrir uma live interativa no TikTok e receber moedas enquanto o
               jogo roda sozinho.
             </p>
-            <div className="mt-6 rounded-2xl border border-primary/25 bg-primary/[0.07] p-6">
-              <p className="text-3xl font-bold leading-tight sm:text-4xl">
+
+            <div className="mt-8 rounded-2xl border border-primary/30 bg-card/60 p-6 sm:p-8">
+              <h2 className="text-2xl font-bold leading-tight sm:text-3xl">
+                Veja o valor real de cada moeda dentro da plataforma
+              </h2>
+              <p className="mx-auto mt-3 max-w-xl text-sm text-muted-foreground">
+                O próprio TikTok estimula esses valores para conversão de moedas em dinheiro real.
+              </p>
+
+              <div className="frame-glow mt-8 overflow-hidden rounded-2xl border border-primary/20">
+                <img
+                  src={moedasAsset.url}
+                  alt="Tabela de valores reais das moedas do TikTok estimulados pela plataforma"
+                  width={1440}
+                  height={810}
+                  className="w-full"
+                />
+              </div>
+
+              <p className="mt-6 text-3xl font-bold leading-tight sm:text-4xl">
                 Média de{" "}
                 <span className="text-brand-gradient">5.000 moedas por dia</span>
               </p>
               <p className="mt-2 text-lg font-medium text-foreground">
-                são equivalente a ~<span className="text-brand-gradient">R$180 diários</span>.
+                podem gerar até{" "}
+                <span className="text-brand-gradient">R$300 diários</span>.
               </p>
               <p className="mt-4 text-sm font-medium uppercase tracking-[0.12em] text-muted-foreground">
                 Sem fazer nada. Literalmente.
