@@ -154,3 +154,42 @@
     color: var(--color-foreground);
   }
 }
+
+@layer base {
+  body {
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+  }
+  h1, h2, h3 {
+    font-family: var(--font-display);
+    letter-spacing: -0.03em;
+  }
+}
+
+@utility text-brand-gradient {
+  background: var(--gradient-brand);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+@utility frame-glow {
+  box-shadow: var(--glow-frame);
+}
+
+@utility btn-brand {
+  background: var(--gradient-brand);
+  color: var(--primary-foreground);
+  box-shadow: var(--shadow-brand);
+  transition: transform 0.2s ease, filter 0.2s ease;
+  &:hover {
+    transform: translateY(-2px);
+    filter: brightness(1.07);
+  }
+}
+
+@utility bg-glow-top {
+  background:
+    radial-gradient(60% 45% at 50% 0%, oklch(0.68 0.26 4 / 0.22), transparent 70%),
+    radial-gradient(40% 30% at 50% 40%, oklch(0.68 0.26 4 / 0.08), transparent 70%);
+}
