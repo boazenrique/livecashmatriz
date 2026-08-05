@@ -103,14 +103,39 @@ function Index() {
               você tem um TikTok, você pode começar hoje.
             </p>
           </div>
+        </section>
 
-          <div className="pt-4">
-            <a
-              href="#"
-              className="btn-brand inline-flex items-center justify-center rounded-full px-8 py-4 text-sm font-bold uppercase tracking-[0.08em]"
-            >
-              Quero começar agora
-            </a>
+        {/* Veja como fica na prática */}
+        <section className="mt-20">
+          <div className="max-w-3xl">
+            <h2 className="text-3xl font-bold leading-tight sm:text-4xl">
+              Veja como fica <br />
+              <span className="text-brand-gradient">na prática</span>
+            </h2>
+            <p className="mt-4 max-w-xl text-[15px] leading-relaxed text-muted-foreground">
+              Exatamente assim que aparece na sua live. O público vê o jogo, interage e os diamantes
+              chegam.
+            </p>
+          </div>
+
+          <div className="mt-10 grid grid-cols-1 gap-5 sm:grid-cols-2">
+            {/* Placeholder vídeo 1 */}
+            <div className="frame-glow aspect-[9/19] overflow-hidden rounded-2xl border border-border bg-card/50">
+              <div className="flex h-full items-center justify-center">
+                <p className="text-xs font-medium uppercase tracking-[0.14em] text-muted-foreground">
+                  LIVE INTERATIVA AO VIVO
+                </p>
+              </div>
+            </div>
+
+            {/* Placeholder vídeo 2 */}
+            <div className="frame-glow aspect-[9/19] overflow-hidden rounded-2xl border border-border bg-card/50">
+              <div className="flex h-full items-center justify-center">
+                <p className="text-xs font-medium uppercase tracking-[0.14em] text-muted-foreground">
+                  PÚBLICO INTERAGINDO EM TEMPO REAL
+                </p>
+              </div>
+            </div>
           </div>
         </section>
       </div>
