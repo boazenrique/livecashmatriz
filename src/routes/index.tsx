@@ -2,6 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { Gamepad2, Play, Sparkles } from "lucide-react";
 
 import dashboardImg from "@/assets/live-dashboard.jpg";
+import presentesAsset from "@/assets/presentes.png.asset.json";
 
 const title = "LiveCash TikTok — Ganhe R$150 a R$500 por dia com Lives Interativas";
 const description =
@@ -15,7 +16,9 @@ export const Route = createFileRoute("/")({
       { property: "og:title", content: title },
       { property: "og:description", content: description },
       { property: "og:type", content: "website" },
+      { property: "og:image", content: "https://id-preview--c2324dcd-d51c-4ba0-b5b2-0e86ba825941.lovable.app" + presentesAsset.url },
       { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:image", content: "https://id-preview--c2324dcd-d51c-4ba0-b5b2-0e86ba825941.lovable.app" + presentesAsset.url },
     ],
   }),
   component: Index,
@@ -187,23 +190,15 @@ function Index() {
             saldo conforme as regras do TikTok. Veja alguns exemplos:
           </p>
 
-          {/* Placeholder para exemplos/tabela */}
-          <div className="mt-10 grid grid-cols-1 gap-4 sm:grid-cols-3">
-            <div className="frame-glow rounded-2xl border border-border bg-card/50 p-6">
-              <p className="text-xs font-medium uppercase tracking-[0.14em] text-muted-foreground">
-                Exemplo 1
-              </p>
-            </div>
-            <div className="frame-glow rounded-2xl border border-border bg-card/50 p-6">
-              <p className="text-xs font-medium uppercase tracking-[0.14em] text-muted-foreground">
-                Exemplo 2
-              </p>
-            </div>
-            <div className="frame-glow rounded-2xl border border-border bg-card/50 p-6">
-              <p className="text-xs font-medium uppercase tracking-[0.14em] text-muted-foreground">
-                Exemplo 3
-              </p>
-            </div>
+          {/* Tabela de presentes */}
+          <div className="frame-glow overflow-hidden rounded-2xl border border-primary/30 bg-card">
+            <img
+              src={presentesAsset.url}
+              alt="Tabela com os principais presentes do TikTok Live e seus valores em reais"
+              width={1080}
+              height={1440}
+              className="w-full"
+            />
           </div>
         </section>
       </div>
