@@ -2,6 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { Gamepad2, Play, Sparkles } from "lucide-react";
 
 import dashboardImg from "@/assets/live-dashboard.jpg";
+import moedasAsset from "@/assets/moedas.png.asset.json";
 import presentesAsset from "@/assets/presentes.png.asset.json";
 
 const title = "LiveCash TikTok — Ganhe R$150 a R$500 por dia com Lives Interativas";
