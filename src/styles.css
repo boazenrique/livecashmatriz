@@ -193,3 +193,32 @@
     radial-gradient(60% 45% at 50% 0%, oklch(0.68 0.26 4 / 0.22), transparent 70%),
     radial-gradient(40% 30% at 50% 40%, oklch(0.68 0.26 4 / 0.08), transparent 70%);
 }
+
+@utility scrollbar-none {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+@utility scrollbar-theme {
+  scrollbar-width: thin;
+  scrollbar-color: oklch(0.68 0.26 4 / 0.35) transparent;
+
+  &::-webkit-scrollbar {
+    height: 6px;
+    width: 6px;
+  }
+  &::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  &::-webkit-scrollbar-thumb {
+    background: oklch(0.68 0.26 4 / 0.35);
+    border-radius: 999px;
+  }
+  &::-webkit-scrollbar-thumb:hover {
+    background: oklch(0.68 0.26 4 / 0.55);
+  }
+}
