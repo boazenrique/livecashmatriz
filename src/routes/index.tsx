@@ -935,7 +935,7 @@ function Index() {
                 </div>
 
                 <a
-                  href="https://go.livecash.site/PPU38CQF39G"
+                  href="https://go.segurosiste.com.br/PPU38CQF39G"
                   className="mt-6 block rounded-full bg-gradient-to-r from-amber-400 to-orange-500 py-4 text-center text-[15px] font-bold text-black shadow-[0_0_40px_rgba(255,184,0,0.3)] transition-transform hover:-translate-y-0.5"
                 >
                   Quero o Plano Premium
@@ -972,7 +972,7 @@ function Index() {
                 </ul>
 
                 <a
-                  href="https://go.livecash.site/PPU38CQF3F2"
+                  href="https://go.segurosiste.com.br/PPU38CQF3F2"
                   className="btn-brand mt-6 block rounded-full py-4 text-center text-[15px] font-bold"
                 >
                   Quero o Plano Básico
