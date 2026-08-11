@@ -1,18 +1,14 @@
 import { useEffect, useRef, useState } from "react";
 import { createFileRoute } from "@tanstack/react-router";
 import {
-  AlertTriangle,
-  Calendar,
   Crown,
   Flame,
   Globe,
-  Lock,
   Play,
   PartyPopper,
   Plus,
   Sparkles,
   Swords,
-  Timer,
   Trophy,
   Zap,
 } from "lucide-react";
@@ -259,7 +255,7 @@ const basicFeatures = [
 
 const faqs = [
   {
-    question: "Preciso aparecer na câmera?",
+    question: "Preciso aparecer nas lives ou gravar vídeo?",
     answer:
       "Não. O jogo fica na tela e roda sozinho. Você pode estar fazendo outra coisa, dormindo, trabalhando — a live continua e os presentes chegam.",
   },
@@ -279,9 +275,29 @@ const faqs = [
       "A média é de 5.000 diamantes por dia, o equivalente a ~R$140. Uma renda real que chega enquanto o jogo roda sozinho — sem você fazer absolutamente nada.",
   },
   {
+    question: "Como recebo meus pagamentos do TikTok?",
+    answer:
+      "Direto pelo próprio TikTok. Os presentes viram diamantes, você troca por saldo dentro do app e o PIX cai na hora, na sua conta. A LiveCash não chega perto desse dinheiro em nenhum momento.",
+  },
+  {
+    question: "A LiveCash ganha algo em cima dos meus presentes?",
+    answer:
+      "Não. 100% dos presentes e diamantes são seus — o TikTok já desconta a taxa dele antes de cair na sua conta, igual em qualquer live normal. A LiveCash só cobra o valor do plano, nunca uma porcentagem do que você fatura.",
+  },
+  {
+    question: "Eu tenho que pagar algo além dos planos para começar?",
+    answer:
+      "Não. O valor do plano já dá acesso completo à plataforma, aos jogos e ao suporte — sem taxa de configuração, mensalidade escondida ou letra miúda. Você paga uma vez e já pode rodar sua primeira live no mesmo dia.",
+  },
+  {
     question: "O acesso é liberado na hora?",
     answer:
       "Sim. Logo após a confirmação do pagamento você recebe o acesso no e-mail que cadastrou. O acesso é enviado junto com as instruções de configuração.",
+  },
+  {
+    question: "Tenho garantia?",
+    answer:
+      "Sim, e é vitalícia: enquanto você for cliente, acesso, suporte e atualizações estão garantidos. Não gostou ou quer parar por qualquer motivo? Cancela quando quiser, sem multa e sem burocracia.",
   },
 ];
 
@@ -304,28 +320,6 @@ export const Route = createFileRoute("/")({
   }),
   component: Index,
 });
-
-const VACANCY_COUNTDOWN_SECONDS = 20 * 60;
-
-function useVacancyCountdown() {
-  const [secondsLeft, setSecondsLeft] = useState(VACANCY_COUNTDOWN_SECONDS);
-
-  useEffect(() => {
-    const stored = sessionStorage.getItem("vacancyEnd");
-    const end = stored ? Number(stored) : Date.now() + VACANCY_COUNTDOWN_SECONDS * 1000;
-    if (!stored) sessionStorage.setItem("vacancyEnd", String(end));
-    setSecondsLeft(Math.max(0, Math.round((end - Date.now()) / 1000)));
-
-    const interval = setInterval(() => {
-      setSecondsLeft(Math.max(0, Math.round((end - Date.now()) / 1000)));
-    }, 1000);
-    return () => clearInterval(interval);
-  }, []);
-
-  const minutes = Math.floor(secondsLeft / 60);
-  const seconds = secondsLeft % 60;
-  return `${String(minutes).padStart(2, "0")}:${String(seconds).padStart(2, "0")}`;
-}
 
 const MARQUEE_LOOP_MS = 32000;
 
@@ -403,7 +397,6 @@ function useDraggableMarquee() {
 
 function Index() {
   const gamesMarquee = useDraggableMarquee();
-  const vacancyCountdown = useVacancyCountdown();
   const [openFaq, setOpenFaq] = useState<number | null>(null);
 
   return (
@@ -419,11 +412,11 @@ function Index() {
           <h1 className="mx-auto max-w-2xl text-4xl font-bold leading-[1.06] sm:text-5xl">
             Ganhe de <span className="text-brand-gradient">R$150 a R$500 por dia</span> com Lives
             Interativas no TikTok
-            <br className="hidden sm:block" /> 100% no automático e sem aparecer.
+            <br className="hidden sm:block" /> no automático e sem aparecer.
           </h1>
 
           <p className="mx-auto mt-6 max-w-xl text-base leading-relaxed text-muted-foreground">
-            Tenha acesso à maior plataforma de jogos para TikTok Live do Brasil. Escolha um dos
+            Veja como é fácil ganhar dinheiro no automático hoje em dia. Você escolhe um dos
             nossos jogos, conecte sua conta e comece a monetizar em poucos minutos.
           </p>
         </section>
@@ -569,15 +562,22 @@ function Index() {
 
         {/* Mar azul */}
         <section className="mt-20">
-          <div className="mx-auto max-w-2xl rounded-2xl border border-border bg-card/60 p-8">
-            <span className="text-3xl">🌊</span>
-            <h2 className="mt-4 text-2xl font-bold leading-tight sm:text-3xl">
-              Mar azul - quase ninguém está fazendo isso
-            </h2>
-            <p className="mt-4 text-[15px] leading-relaxed text-muted-foreground">
-              Enquanto milhares de pessoas brigam por atenção criando conteúdo, uma minoria
-              silenciosa abre a live, liga o jogo e vai dormir, e acorda com dinheiro na conta.
-            </p>
+          <div className="frame-glow mx-auto max-w-2xl overflow-hidden rounded-2xl border border-border bg-card/60">
+            <div className="p-8">
+              <span className="text-3xl">🌊</span>
+              <h2 className="mt-4 text-2xl font-bold leading-tight sm:text-3xl">
+                Mar azul - quase ninguém está fazendo isso
+              </h2>
+              <p className="mt-4 text-[15px] leading-relaxed text-muted-foreground">
+                Enquanto milhares de pessoas brigam por atenção criando conteúdo, uma minoria
+                silenciosa abre a live, liga o jogo e vai dormir, e acorda com dinheiro na conta.
+              </p>
+            </div>
+            <img
+              src="/saldo.png"
+              alt="Saldo acumulado com presentes do TikTok Live"
+              className="w-full object-cover"
+            />
           </div>
         </section>
 
@@ -741,10 +741,10 @@ function Index() {
             </span>
             <h2 className="mt-3 text-3xl font-bold leading-tight sm:text-4xl">
               Top 10 usuários que fizeram mais{" "}
-              <span className="text-brand-gradient">diamantes em Junho</span>
+              <span className="text-brand-gradient">diamantes em tempo real</span>
             </h2>
             <p className="mx-auto mt-4 max-w-xl text-[15px] leading-relaxed text-muted-foreground">
-              Resultados reais de usuários LiveCash. Ranking final do mês de Junho.
+              Resultados reais de usuários LiveCash. Ranking em tempo real.
             </p>
           </div>
 
@@ -837,52 +837,6 @@ function Index() {
             estão lucrando com Lives no automático sem aparecer.
           </p>
 
-          <div className="frame-glow mx-auto mt-8 max-w-lg rounded-[1.75rem] border border-primary/30 bg-primary/[0.06] p-6 text-left sm:p-7">
-            <div className="flex items-center gap-3">
-              <span className="flex size-9 shrink-0 items-center justify-center rounded-full bg-primary/15 text-primary">
-                <Lock className="size-4" />
-              </span>
-              <p className="text-[15px] font-bold leading-snug text-primary">
-                Acessos limitados por conta da concorrência
-              </p>
-            </div>
-            <p className="mt-4 text-sm leading-relaxed text-muted-foreground">
-              Estamos limitando o acesso para proteger quem já está dentro. Quando muita gente
-              usa o mesmo mercado, os ganhos caem. Aqui só entra quem vai usar de verdade.
-            </p>
-
-            <div className="mt-5">
-              <div className="h-2.5 overflow-hidden rounded-full bg-white/10">
-                <div
-                  className="h-full w-[96%] rounded-full bg-gradient-to-r from-primary to-brand-soft"
-                  style={{ boxShadow: "0 0 14px oklch(0.68 0.26 4 / 0.6)" }}
-                />
-              </div>
-              <div className="mt-2.5 flex flex-wrap items-center justify-between gap-2 text-[13px]">
-                <span className="text-muted-foreground">97 acessos ativados</span>
-                <span className="inline-flex items-center gap-1.5 font-semibold text-primary">
-                  <AlertTriangle className="size-3.5" />
-                  Apenas <strong>3 acessos restantes</strong>
-                </span>
-              </div>
-            </div>
-
-            <div className="mt-5 flex flex-wrap items-center gap-4 rounded-xl border border-border bg-white/[0.03] p-4">
-              <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                <Timer className="size-4 shrink-0 text-primary" />
-                Estimativa para esgotar:{" "}
-                <strong className="font-display text-base font-extrabold text-primary">
-                  {vacancyCountdown}
-                </strong>
-              </div>
-              <div className="hidden h-7 w-px bg-border sm:block" />
-              <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                <Calendar className="size-4 shrink-0 text-primary" />
-                Próximos acessos: <strong className="text-foreground">Janeiro 2027</strong> por{" "}
-                <strong className="text-primary">R$197,90</strong>
-              </div>
-            </div>
-          </div>
         </section>
 
         {/* Planos */}
@@ -1051,7 +1005,7 @@ function Index() {
           className="mx-auto h-9 w-auto opacity-90"
         />
         <p className="mx-auto mt-4 max-w-sm text-xs leading-relaxed text-muted-foreground">
-          Jogos interativos para TikTok Live · Não somos afiliados ao TikTok
+          Jogos interativos para TikTok Live · Plataforma autorizada pelo TikTok
         </p>
       </footer>
     </main>

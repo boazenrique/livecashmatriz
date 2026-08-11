@@ -6,7 +6,7 @@ Logo centralizada> LiveCash TikTok
 
 
 
-Headline: Ganhe de R$150 a R$500 por dia com Lives Interativas no TikTok 100% no automático e sem aparecer.
+Headline: Ganhe de R$150 a R$500 por dia com Lives Interativas no TikTok no automático e sem aparecer.
 
 Subhead: Tenha acesso à maior plataforma de jogos para TikTok Live do Brasil. Escolha um dos nossos jogos, conecte sua conta e comece a monetizar em poucos minutos.
 
@@ -20,7 +20,7 @@ Bloco do Vídeo de vendas
 
 A LiveCash TIKTOK é uma plataforma parceira do Tiktok que reúne jogos interativos desenvolvidos especialmente para TikTok LIVE. Você escolhe um jogo, conecta sua conta e inicia a transmissão. Enquanto o público interage enviando presentes, comentários e curtidas, o jogo acontece automaticamente na tela, mantendo a audiência engajada durante toda a live.
 
-Não precisa de seguidores, não precisa de câmera, não precisa de roteiro e não precisa aparecer. Se você tem um TikTok, você pode começar hoje.
+Não precisa de seguidores, não precisa de gravar vídeo, não precisa de roteiro e não precisa aparecer. Se você tem um TikTok, você pode começar hoje.
 
 This project was built with [Lovable](https://lovable.dev).
 
