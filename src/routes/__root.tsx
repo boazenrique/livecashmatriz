@@ -121,8 +121,29 @@ function RootShell({ children }: { children: ReactNode }) {
   );
 }
 
+function loadScriptOnce(src: string, attributes: Record<string, string> = {}) {
+  if (document.querySelector(`script[src="${src}"]`)) return;
+  const script = document.createElement("script");
+  script.src = src;
+  script.async = true;
+  script.defer = true;
+  for (const [name, value] of Object.entries(attributes)) {
+    script.setAttribute(name, value);
+  }
+  document.head.appendChild(script);
+}
+
 function RootComponent() {
   const { queryClient } = Route.useRouteContext();
+
+  useEffect(() => {
+    window.pixelId = "6a7cc30e85c038415dc15ce8";
+    loadScriptOnce("https://cdn.utmify.com.br/scripts/pixel/pixel.js");
+    loadScriptOnce("https://cdn.utmify.com.br/scripts/utms/latest.js", {
+      "data-utmify-prevent-xcod-sck": "",
+      "data-utmify-prevent-subids": "",
+    });
+  }, []);
 
   return (
     <QueryClientProvider client={queryClient}>

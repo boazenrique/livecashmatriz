@@ -1,10 +1,15 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, notFound } from "@tanstack/react-router";
 
 import presentesAsset from "@/assets/presentes.png.asset.json";
 import { LandingPage, pageDescription, pageTitle } from "@/components/landing-page";
-import { defaultOffer } from "@/lib/offers";
+import { influencerOffers } from "@/lib/offers";
 
-export const Route = createFileRoute("/")({
+export const Route = createFileRoute("/$slug")({
+  loader: ({ params }) => {
+    const offer = influencerOffers[params.slug];
+    if (!offer) throw notFound();
+    return offer;
+  },
   head: () => ({
     meta: [
       { title: pageTitle },
@@ -17,5 +22,10 @@ export const Route = createFileRoute("/")({
       { name: "twitter:image", content: "https://id-preview--c2324dcd-d51c-4ba0-b5b2-0e86ba825941.lovable.app" + presentesAsset.url },
     ],
   }),
-  component: () => <LandingPage offers={defaultOffer} />,
+  component: SlugLandingPage,
 });
+
+function SlugLandingPage() {
+  const offer = Route.useLoaderData();
+  return <LandingPage offers={offer} />;
+}
