@@ -4,7 +4,6 @@ import {
   Crown,
   Flame,
   Globe,
-  Play,
   PartyPopper,
   Plus,
   Sparkles,
@@ -12,8 +11,6 @@ import {
   Trophy,
   Zap,
 } from "lucide-react";
-
-import dashboardImg from "@/assets/live-dashboard.jpg";
 
 const rankingMedals = ["🥇", "🥈", "🥉"];
 
@@ -395,9 +392,19 @@ function useDraggableMarquee() {
   };
 }
 
+const HOSTVSL_SCRIPT_SRC = "https://script-prod.b-cdn.net/V0.700/hostvsl-player.js";
+
 function Index() {
   const gamesMarquee = useDraggableMarquee();
   const [openFaq, setOpenFaq] = useState<number | null>(null);
+
+  useEffect(() => {
+    if (document.querySelector(`script[src="${HOSTVSL_SCRIPT_SRC}"]`)) return;
+    const script = document.createElement("script");
+    script.src = HOSTVSL_SCRIPT_SRC;
+    script.async = true;
+    document.body.appendChild(script);
+  }, []);
 
   return (
     <main className="min-h-screen bg-background bg-glow-top">
@@ -424,23 +431,12 @@ function Index() {
         {/* Vídeo de vendas */}
         <section className="mt-14">
           <div className="frame-glow overflow-hidden rounded-2xl border border-primary/30 bg-card">
-            <div className="relative">
-              <img
-                src={dashboardImg}
-                alt="Painel da LiveCash TikTok com jogo interativo rodando durante uma live"
-                width={1600}
-                height={912}
-                className="w-full"
+            <div className="aspect-video w-full">
+              <hostvsl-player
+                id="vid-cc148d0c-7f78-41f8-838a-bed039dd05bb"
+                data-video="https://prod-hostvsl.b-cdn.net/c9c47c1c-97f0-4a3e-9412-13a2040e173a/cc148d0c-7f78-41f8-838a-bed039dd05bb/videoInformations.js?VIDEO_ORIGIN=ORIGINAL"
+                className="block h-full w-full"
               />
-              <button
-                type="button"
-                className="absolute inset-0 flex items-center justify-center bg-background/40 transition-colors hover:bg-background/25"
-                aria-label="Assistir o vídeo de apresentação"
-              >
-                <span className="btn-brand flex size-16 items-center justify-center rounded-full">
-                  <Play className="size-6 translate-x-0.5 fill-current" />
-                </span>
-              </button>
             </div>
             <div className="flex items-center gap-3 border-t border-border px-4 py-3">
               <span className="size-2 animate-pulse rounded-full bg-primary" />
