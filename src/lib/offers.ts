@@ -23,4 +23,8 @@ export const influencerOffers: Record<string, OfferLinks> = {
     premiumUrl: "https://go.segurosiste.com.br/PPU38CQF62C",
     basicUrl: "https://go.segurosiste.com.br/PPU38CQF62D",
   },
+  magavi: {
+    premiumUrl: "https://go.segurosiste.com.br/PPU38CQFAH2",
+    basicUrl: "https://go.segurosiste.com.br/PPU38CQFAH3",
+  },
 };
