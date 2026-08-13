@@ -418,8 +418,8 @@ export function LandingPage({ offers }: { offers: OfferLinks }) {
           <div className="frame-glow overflow-hidden rounded-2xl border border-primary/30 bg-card">
             <div className="aspect-video w-full">
               <hostvsl-player
-                id="vid-cc148d0c-7f78-41f8-838a-bed039dd05bb"
-                data-video="https://prod-hostvsl.b-cdn.net/c9c47c1c-97f0-4a3e-9412-13a2040e173a/cc148d0c-7f78-41f8-838a-bed039dd05bb/videoInformations.js?VIDEO_ORIGIN=ORIGINAL"
+                id="vid-0c045169-f4ca-450d-8941-76d93875d73c"
+                data-video="https://prod-hostvsl.b-cdn.net/c9c47c1c-97f0-4a3e-9412-13a2040e173a/0c045169-f4ca-450d-8941-76d93875d73c/videoInformations.js?VIDEO_ORIGIN=ORIGINAL"
                 className="block h-full w-full"
               />
             </div>
