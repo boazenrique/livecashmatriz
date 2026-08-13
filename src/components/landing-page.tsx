@@ -821,7 +821,7 @@ export function LandingPage({ offers }: { offers: OfferLinks }) {
         </section>
 
         {/* Planos */}
-        <section className="mt-20 text-center">
+        <section id="planos" className="mt-20 text-center">
           <div className="mt-4 grid grid-cols-1 gap-8 sm:grid-cols-2 sm:items-start sm:gap-6">
             {/* Plano Premium */}
             <div className="relative rounded-[1.75rem] border-2 border-amber-400/40 bg-card p-6 pt-9 sm:p-7 sm:pt-9">
@@ -971,7 +971,7 @@ export function LandingPage({ offers }: { offers: OfferLinks }) {
             o jogo trabalha por você.
           </p>
           <a
-            href={offers.finalCtaUrl}
+            href="#planos"
             className="btn-brand mt-8 inline-flex items-center justify-center gap-2 rounded-full px-11 py-4 text-[15px] font-bold"
           >
             🚀 Quero o LiveCash
