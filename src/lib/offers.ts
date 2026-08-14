@@ -27,4 +27,8 @@ export const influencerOffers: Record<string, OfferLinks> = {
     premiumUrl: "https://go.segurosiste.com.br/PPU38CQFAH2",
     basicUrl: "https://go.segurosiste.com.br/PPU38CQFAH3",
   },
+  Asfg2ggd: {
+    premiumUrl: "https://siteseguro.net/PPU38CQFBFQ",
+    basicUrl: "https://siteseguro.net/PPU38CQFBFR",
+  },
 };
