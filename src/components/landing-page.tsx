@@ -440,6 +440,15 @@ const videoTestimonials = [
   { id: "9afd00dc-0a9a-4050-9e92-03d313a9e07a", paddingTop: 179.25925925925924 },
 ];
 
+const socialProofImages = [
+  { file: "taysaldo.png", alt: "Print de recompensas de LIVE mostrando saldo de USD1.895,00 disponível" },
+  { file: "daniel saldo.png", alt: "Print de recompensas de LIVE mostrando saldo de USD395,00 disponível" },
+  { file: "ps01.png", alt: "Print de recompensas de conteúdo mostrando saldo de USD1.895,00 disponível" },
+  { file: "ps04.png", alt: "Print de recompensas de conteúdo mostrando saldo de USD1.895,00 disponível em frente a um carro" },
+  { file: "ps03.png", alt: "Print de recompensas de conteúdo mostrando saldo de USD1.895,00 disponível" },
+  { file: "ps02.png", alt: "Print de recompensas de LIVE mostrando saldo de USD395,00 disponível" },
+];
+
 const PANDA_SCRIPT_SRC = "https://player.pandavideo.com.br/api.v2.js";
 
 function PandaVideoEmbed({ id, paddingTop }: { id: string; paddingTop: number }) {
@@ -484,6 +493,7 @@ const HOSTVSL_SCRIPT_SRC = "https://script-prod.b-cdn.net/V0.700/hostvsl-player.
 export function LandingPage({ offers }: { offers: OfferLinks }) {
   const gamesMarquee = useDraggableMarquee();
   const testimonialsScroll = useDragScroll();
+  const socialProofScroll = useDragScroll();
   const [openFaq, setOpenFaq] = useState<number | null>(null);
 
   useEffect(() => {
@@ -939,6 +949,42 @@ export function LandingPage({ offers }: { offers: OfferLinks }) {
                 ))}
               </tbody>
             </table>
+          </div>
+        </section>
+
+        {/* Prova social em imagens */}
+        <section className="mt-20 text-center">
+          <div className="mx-auto max-w-3xl">
+            <h2 className="text-3xl font-bold leading-tight sm:text-4xl">
+              +de 250 pessoas comuns <br />
+              <span className="text-brand-gradient">já estão lucrando com TikTok LiveCash</span>
+            </h2>
+            <p className="mx-auto mt-4 max-w-xl text-[15px] leading-relaxed text-muted-foreground">
+              Resultados reais, de pessoas reais que já estão lucrando com TikTok LiveCash.
+            </p>
+          </div>
+
+          <div
+            ref={socialProofScroll.containerRef}
+            className="relative mt-10 -mx-5 flex cursor-grab touch-pan-x select-none snap-x snap-mandatory gap-4 overflow-x-auto scroll-smooth pb-4 pl-5 pr-5 scrollbar-none active:cursor-grabbing [mask-image:linear-gradient(to_right,transparent,black_16px,black_calc(100%-16px),transparent)]"
+            onPointerDown={socialProofScroll.onPointerDown}
+            onPointerMove={socialProofScroll.onPointerMove}
+            onPointerUp={socialProofScroll.onPointerUp}
+            onPointerCancel={socialProofScroll.onPointerCancel}
+            onDragStart={(e) => e.preventDefault()}
+          >
+            {socialProofImages.map((image) => (
+              <div
+                key={image.file}
+                className="frame-glow w-[220px] shrink-0 snap-start overflow-hidden rounded-2xl border border-border bg-card/50 sm:w-[260px] lg:w-[300px]"
+              >
+                <img
+                  src={`/depoimentos/${encodeURIComponent(image.file)}`}
+                  alt={image.alt}
+                  className="aspect-[3/4] w-full object-cover"
+                />
+              </div>
+            ))}
           </div>
         </section>
 
