@@ -377,10 +377,113 @@ function useDraggableMarquee() {
   };
 }
 
+const DRAG_THRESHOLD_PX = 6;
+
+function useDragScroll() {
+  const containerRef = useRef<HTMLDivElement>(null);
+  const state = useRef({ active: false, dragging: false, startX: 0, startScroll: 0, pointerId: 0 });
+
+  const onPointerDown = (e: React.PointerEvent) => {
+    if (e.pointerType !== "mouse") return;
+    const el = containerRef.current;
+    if (!el) return;
+    state.current = {
+      active: true,
+      dragging: false,
+      startX: e.clientX,
+      startScroll: el.scrollLeft,
+      pointerId: e.pointerId,
+    };
+    // Capture immediately so move events keep reaching us even while the
+    // cursor is over a video iframe (iframes otherwise swallow them).
+    el.setPointerCapture(e.pointerId);
+  };
+
+  const onPointerMove = (e: React.PointerEvent) => {
+    const el = containerRef.current;
+    if (!el || !state.current.active) return;
+    const dx = e.clientX - state.current.startX;
+
+    if (!state.current.dragging) {
+      if (Math.abs(dx) < DRAG_THRESHOLD_PX) return;
+      state.current.dragging = true;
+    }
+
+    el.scrollLeft = state.current.startScroll - dx;
+  };
+
+  const endDrag = (e: React.PointerEvent) => {
+    const el = containerRef.current;
+    if (el && state.current.active && !state.current.dragging) {
+      // Never actually dragged: release capture so the click that follows
+      // hits whatever is under the cursor (e.g. the video's play button)
+      // instead of being swallowed by the carousel container.
+      el.releasePointerCapture(e.pointerId);
+    }
+    state.current.active = false;
+    state.current.dragging = false;
+  };
+
+  return {
+    containerRef,
+    onPointerDown,
+    onPointerMove,
+    onPointerUp: endDrag,
+    onPointerCancel: endDrag,
+  };
+}
+
+const videoTestimonials = [
+  { id: "262f4ca4-33e3-43f9-b4d2-5555ad9e9759", paddingTop: 179.31034482758622 },
+  { id: "f8e3a06d-edb9-41b4-88d8-28a9ba014346", paddingTop: 177.77777777777777 },
+  { id: "4d17e0bc-5ccb-4d0a-b205-ba3f92c93c7b", paddingTop: 177.77777777777777 },
+  { id: "9afd00dc-0a9a-4050-9e92-03d313a9e07a", paddingTop: 179.25925925925924 },
+];
+
+const PANDA_SCRIPT_SRC = "https://player.pandavideo.com.br/api.v2.js";
+
+function PandaVideoEmbed({ id, paddingTop }: { id: string; paddingTop: number }) {
+  const playerId = `panda-${id}`;
+
+  useEffect(() => {
+    if (!document.querySelector(`script[src="${PANDA_SCRIPT_SRC}"]`)) {
+      const script = document.createElement("script");
+      script.src = PANDA_SCRIPT_SRC;
+      script.async = true;
+      document.head.appendChild(script);
+    }
+
+    window.pandascripttag = window.pandascripttag || [];
+    window.pandascripttag.push(() => {
+      const player = new PandaPlayer(playerId, {
+        onReady() {
+          player.loadWindowScreen({ panda_id_player: playerId });
+        },
+      });
+    });
+  }, [playerId]);
+
+  return (
+    <div style={{ position: "relative", paddingTop: `${paddingTop}%` }}>
+      <iframe
+        id={playerId}
+        title="Depoimento em vídeo"
+        src={`https://player-vz-796cc82c-715.tv.pandavideo.com.br/embed/?v=${id}&iosFakeFullscreen=true`}
+        style={{ border: "none", position: "absolute", top: 0, left: 0 }}
+        allow="accelerometer;gyroscope;autoplay;encrypted-media;picture-in-picture"
+        allowFullScreen
+        width="100%"
+        height="100%"
+      />
+    </div>
+  );
+}
+
 const HOSTVSL_SCRIPT_SRC = "https://script-prod.b-cdn.net/V0.700/hostvsl-player.js";
 
 export function LandingPage({ offers }: { offers: OfferLinks }) {
   const gamesMarquee = useDraggableMarquee();
+  const testimonialsScroll = useDragScroll();
   const [openFaq, setOpenFaq] = useState<number | null>(null);
 
   useEffect(() => {
@@ -497,6 +600,38 @@ export function LandingPage({ offers }: { offers: OfferLinks }) {
                 className="h-full w-full object-cover"
               />
             </div>
+          </div>
+        </section>
+
+        {/* Depoimentos em vídeo */}
+        <section className="mt-20 text-center">
+          <div className="mx-auto max-w-3xl">
+            <h2 className="text-3xl font-bold leading-tight sm:text-4xl">
+              Depoimentos de quem <br />
+              <span className="text-brand-gradient">já está usando</span>
+            </h2>
+            <p className="mx-auto mt-4 max-w-xl text-[15px] leading-relaxed text-muted-foreground">
+              Pessoas reais, usando a LiveCash agora, contando como está sendo a experiência.
+            </p>
+          </div>
+
+          <div
+            ref={testimonialsScroll.containerRef}
+            className="relative mt-10 -mx-5 flex cursor-grab touch-pan-x select-none snap-x snap-mandatory gap-4 overflow-x-auto scroll-smooth pb-4 pl-5 pr-5 scrollbar-none active:cursor-grabbing [mask-image:linear-gradient(to_right,transparent,black_16px,black_calc(100%-16px),transparent)]"
+            onPointerDown={testimonialsScroll.onPointerDown}
+            onPointerMove={testimonialsScroll.onPointerMove}
+            onPointerUp={testimonialsScroll.onPointerUp}
+            onPointerCancel={testimonialsScroll.onPointerCancel}
+            onDragStart={(e) => e.preventDefault()}
+          >
+            {videoTestimonials.map((video) => (
+              <div
+                key={video.id}
+                className="frame-glow w-[220px] shrink-0 snap-start overflow-hidden rounded-2xl border border-border bg-card/50 sm:w-[260px] lg:w-[300px]"
+              >
+                <PandaVideoEmbed id={video.id} paddingTop={video.paddingTop} />
+              </div>
+            ))}
           </div>
         </section>
 
