@@ -4,8 +4,8 @@ export type OfferLinks = {
 };
 
 export const defaultOffer: OfferLinks = {
-  premiumUrl: "https://go.segurosiste.com.br/PPU38CQF39G",
-  basicUrl: "https://go.segurosiste.com.br/PPU38CQF3F2",
+  premiumUrl: "https://go.segurosiste.com.br/PPU38CQFDJ5",
+  basicUrl: "https://go.segurosiste.com.br/PPU38CQFDJ6",
 };
 
 // Cada chave vira uma URL: livecashtiktok.com/<chave>. Uma entrada nova aqui

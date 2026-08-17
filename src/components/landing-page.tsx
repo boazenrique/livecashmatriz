@@ -1022,10 +1022,7 @@ export function LandingPage({ offers }: { offers: OfferLinks }) {
 
                 <div className="mt-4 font-display text-5xl font-extrabold tracking-tight">
                   <span className="mr-1 align-super text-xl text-amber-400">R$</span>
-                  96
-                  <span className="ml-1 align-super text-lg font-semibold text-muted-foreground">
-                    /mês
-                  </span>
+                  67,00
                 </div>
 
                 <p className="mt-5 text-sm font-bold text-amber-400">Tudo do plano Básico +</p>
@@ -1072,10 +1069,7 @@ export function LandingPage({ offers }: { offers: OfferLinks }) {
 
                 <div className="mt-4 font-display text-5xl font-extrabold tracking-tight">
                   <span className="mr-1 align-super text-xl text-primary">R$</span>
-                  68
-                  <span className="ml-1 align-super text-lg font-semibold text-muted-foreground">
-                    /mês
-                  </span>
+                  47,00
                 </div>
 
                 <ul className="mt-6 space-y-3 text-sm text-foreground/80">
@@ -1155,7 +1149,7 @@ export function LandingPage({ offers }: { offers: OfferLinks }) {
             href="#planos"
             className="btn-brand mt-8 inline-flex items-center justify-center gap-2 rounded-full px-11 py-4 text-[15px] font-bold"
           >
-            🚀 Quero o LiveCash
+           Quero o LiveCash
           </a>
         </section>
       </div>
