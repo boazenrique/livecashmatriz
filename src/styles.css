@@ -155,6 +155,8 @@
     color: var(--color-foreground);
     scrollbar-width: none;
     -ms-overflow-style: none;
+    overflow-x: hidden;
+    max-width: 100%;
   }
 
   html::-webkit-scrollbar,

@@ -236,6 +236,7 @@ const games = [
 ];
 
 const premiumFeatures = [
+  "Turorial e acessos enviados imediatamente via email após a compra",
   "Contas ilimitadas no TikTok",
   "+de 26 jogos Premium desbloqueados",
   "Novos jogos adicionados todos os meses",
@@ -247,6 +248,7 @@ const premiumFeatures = [
 ];
 
 const basicFeatures = [
+  "Acesso imediato via email após a compra",
   "1 conta TikTok",
   "Acesso aos 3 jogos",
   "Atualizações da plataforma",
@@ -515,15 +517,8 @@ export function LandingPage({ offers }: { offers: OfferLinks }) {
         {/* Hero */}
         <section className="pt-20 text-center sm:pt-28">
           <h1 className="mx-auto max-w-2xl text-4xl font-bold leading-[1.06] sm:text-5xl">
-            Ganhe de <span className="text-brand-gradient">R$150 a R$500 por dia</span> com Lives
-            Interativas no TikTok
-            <br className="hidden sm:block" /> no automático e sem aparecer.
+            Veja agora o novo jeito de <span className="text-brand-gradient">ganhar dinheiro 100% no automático</span> hoje em dia
           </h1>
-
-          <p className="mx-auto mt-6 max-w-xl text-base leading-relaxed text-muted-foreground">
-            Veja como é fácil ganhar dinheiro no automático hoje em dia. Você escolhe um dos
-            nossos jogos, conecte sua conta e comece a monetizar em poucos minutos.
-          </p>
         </section>
 
         {/* Vídeo de vendas */}
@@ -548,11 +543,10 @@ export function LandingPage({ offers }: { offers: OfferLinks }) {
         {/* Explicação */}
         <section className="mt-12 space-y-5 text-center">
           <p className="mx-auto max-w-2xl text-[15px] leading-relaxed text-muted-foreground">
-            A <strong className="font-semibold text-foreground">LiveCash TIKTOK</strong> é uma
-            plataforma parceira do Tiktok que reúne jogos interativos desenvolvidos especialmente
-            para TikTok LIVE. Você escolhe um jogo, conecta sua conta e inicia a transmissão.
-            Enquanto o público interage enviando presentes, comentários e curtidas, o jogo acontece
-            automaticamente na tela, mantendo a audiência engajada durante toda a live.
+            Qualquer pessoa pode abrir uma Live Interativa no TikTok e receber presente enquanto o
+            jogo roda sozinho. É muito simples, você escolhe um dos nossos jogos, conecte sua conta
+            e comece a receber os presentes. Média de 5.000 presentes equivale a 150 reais por dia
+            sem fazer nada, literalmente!
           </p>
 
           <div className="mx-auto max-w-2xl rounded-2xl border border-primary/25 bg-primary/[0.07] p-6">
@@ -618,10 +612,10 @@ export function LandingPage({ offers }: { offers: OfferLinks }) {
           <div className="mx-auto max-w-3xl">
             <h2 className="text-3xl font-bold leading-tight sm:text-4xl">
               Depoimentos de quem <br />
-              <span className="text-brand-gradient">já está usando</span>
+              <span className="text-brand-gradient">já está lucrando</span>
             </h2>
             <p className="mx-auto mt-4 max-w-xl text-[15px] leading-relaxed text-muted-foreground">
-              Pessoas reais, usando a LiveCash agora, contando como está sendo a experiência.
+              Enquanto você está nessa página, tem alguém ganhando dinheiro com as Lives Interativas.
             </p>
           </div>
 
@@ -707,36 +701,16 @@ export function LandingPage({ offers }: { offers: OfferLinks }) {
           </div>
         </section>
 
-        {/* Quanto você pode ganhar */}
-        <section className="mt-20 text-center">
-          <h2 className="text-3xl font-bold leading-tight sm:text-4xl">
-            Quanto você pode ganhar <br />
-            <span className="text-brand-gradient">começando ainda hoje?</span>
-          </h2>
-          <p className="mx-auto mt-5 max-w-2xl text-[15px] leading-relaxed text-muted-foreground">
-            Cada presente enviado durante sua Live vira dinheiro real na sua conta. Os espectadores
-            enviam presentes para interagir com o jogo. Depois, você converte esses presentes em
-            saldo conforme as regras do TikTok. Veja alguns exemplos:
-          </p>
-
-          {/* Tabela de presentes */}
-          <div className="frame-glow overflow-hidden rounded-2xl border border-primary/30 bg-card">
-            <img
-              src="/presentes.png"
-              alt="Tabela com os principais presentes do TikTok Live e seus valores em reais"
-              width={1080}
-              height={1440}
-              className="w-full"
-            />
-          </div>
-        </section>
-
         {/* Projeção de evolução */}
         <section className="mt-20">
           <div className="mx-auto max-w-3xl text-center">
             <h2 className="text-3xl font-bold leading-tight sm:text-4xl">
-              Veja uma projeção de evolução de quem utiliza a plataforma de forma consistente e monetiza com presentes.
+              Veja quanto você evolui com o tempo
             </h2>
+            <p className="mx-auto mt-4 max-w-xl text-[15px] leading-relaxed text-muted-foreground">
+              Quanto mais você usa, mais o algoritmo do TikTok te impulsiona. Os números abaixo são
+              médias reais de quem usa os jogos.
+            </p>
 
             <div className="mt-8 overflow-hidden rounded-3xl border border-primary/20 bg-card/70 p-6 sm:p-8">
               <div className="grid gap-4 rounded-2xl border border-border bg-background/80 p-4 text-sm uppercase tracking-[0.12em] text-muted-foreground sm:grid-cols-3">
@@ -862,12 +836,9 @@ export function LandingPage({ offers }: { offers: OfferLinks }) {
         {/* Ranking de usuários */}
         <section className="mt-20">
           <div className="mx-auto max-w-2xl text-center">
-            <span className="inline-flex items-center gap-1.5 text-xs font-semibold uppercase tracking-[0.14em] text-brand-soft">
-              🏆 Ranking — Junho 2026
-            </span>
-            <h2 className="mt-3 text-3xl font-bold leading-tight sm:text-4xl">
+            <h2 className="text-3xl font-bold leading-tight sm:text-4xl">
               Top 10 usuários que fizeram mais{" "}
-              <span className="text-brand-gradient">diamantes em tempo real</span>
+              <span className="text-brand-gradient">lucraram no mês de Agosto</span>
             </h2>
             <p className="mx-auto mt-4 max-w-xl text-[15px] leading-relaxed text-muted-foreground">
               Resultados reais de usuários LiveCash. Ranking em tempo real.
