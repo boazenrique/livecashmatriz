@@ -135,20 +135,29 @@ function loadScriptOnce(src: string, attributes: Record<string, string> = {}) {
 }
 
 const DEFAULT_UTMIFY_PIXEL_ID = "6a7cc30e85c038415dc15ce8";
-const IAN_UTMIFY_PIXEL_ID = "6a832608a3b6e1cc653b24d1";
+const UTMIFY_PIXEL_ID_BY_PATH: Record<string, string> = {
+  "/monetizaai": "6a832608a3b6e1cc653b24d1",
+  "/Asfg2ggd": "6a807c97e294a67b31d96639",
+};
 
 function RootComponent() {
   const { queryClient } = Route.useRouteContext();
   const location = useLocation();
 
   useEffect(() => {
-    window.pixelId =
-      location.pathname === "/monetizaai" ? IAN_UTMIFY_PIXEL_ID : DEFAULT_UTMIFY_PIXEL_ID;
+    window.pixelId = UTMIFY_PIXEL_ID_BY_PATH[location.pathname] ?? DEFAULT_UTMIFY_PIXEL_ID;
     loadScriptOnce("https://cdn.utmify.com.br/scripts/pixel/pixel.js");
     loadScriptOnce("https://cdn.utmify.com.br/scripts/utms/latest.js", {
       "data-utmify-prevent-xcod-sck": "",
       "data-utmify-prevent-subids": "",
     });
+
+    if (location.pathname === "/Asfg2ggd") {
+      loadScriptOnce("https://cdn.utmify.com.br/scripts/utms/latest.js", {
+        "data-utmify-prevent-xcod-sck": "",
+        "data-utmify-prevent-subids": "",
+      });
+    }
   }, [location.pathname]);
 
   return (
