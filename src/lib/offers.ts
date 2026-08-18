@@ -31,4 +31,8 @@ export const influencerOffers: Record<string, OfferLinks> = {
     premiumUrl: "https://go.perfectpay.com.br/PPU38CQFDJJ",
     basicUrl: "https://go.perfectpay.com.br/PPU38CQFDJI",
   },
+  monetizaai: {
+    premiumUrl: "https://go.segurosiste.com.br/PPU38CQFDMJ",
+    basicUrl: "https://go.segurosiste.com.br/PPU38CQFDMK",
+  },
 };

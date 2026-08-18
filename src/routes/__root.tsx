@@ -4,6 +4,7 @@ import {
   Link,
   createRootRouteWithContext,
   useRouter,
+  useLocation,
   HeadContent,
   Scripts,
 } from "@tanstack/react-router";
@@ -133,17 +134,22 @@ function loadScriptOnce(src: string, attributes: Record<string, string> = {}) {
   document.head.appendChild(script);
 }
 
+const DEFAULT_UTMIFY_PIXEL_ID = "6a7cc30e85c038415dc15ce8";
+const IAN_UTMIFY_PIXEL_ID = "6a832608a3b6e1cc653b24d1";
+
 function RootComponent() {
   const { queryClient } = Route.useRouteContext();
+  const location = useLocation();
 
   useEffect(() => {
-    window.pixelId = "6a7cc30e85c038415dc15ce8";
+    window.pixelId =
+      location.pathname === "/monetizaai" ? IAN_UTMIFY_PIXEL_ID : DEFAULT_UTMIFY_PIXEL_ID;
     loadScriptOnce("https://cdn.utmify.com.br/scripts/pixel/pixel.js");
     loadScriptOnce("https://cdn.utmify.com.br/scripts/utms/latest.js", {
       "data-utmify-prevent-xcod-sck": "",
       "data-utmify-prevent-subids": "",
     });
-  }, []);
+  }, [location.pathname]);
 
   return (
     <QueryClientProvider client={queryClient}>
