@@ -16,8 +16,8 @@ export const influencerOffers: Record<string, OfferLinks> = {
     basicUrl: "https://go.segurosiste.com.br/PPU38CQF746",
   },
   ka: {
-    premiumUrl: "https://go.segurosiste.com.br/PPU38CQF7NH",
-    basicUrl: "https://go.segurosiste.com.br/PPU38CQF7NI",
+    premiumUrl: "https://go.segurosiste.com.br/PPU38CQFDTT",
+    basicUrl: "https://go.segurosiste.com.br/PPU38CQFDTU",
   },
   vander: {
     premiumUrl: "https://go.segurosiste.com.br/PPU38CQF62C",
