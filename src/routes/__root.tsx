@@ -138,6 +138,7 @@ const DEFAULT_UTMIFY_PIXEL_ID = "6a7cc30e85c038415dc15ce8";
 const UTMIFY_PIXEL_ID_BY_PATH: Record<string, string> = {
   "/monetizaai": "6a832608a3b6e1cc653b24d1",
   "/Asfg2ggd": "6a807c97e294a67b31d96639",
+  "/4asdfg54": "6a8605f2d98f453eb4a48eb5",
 };
 
 function RootComponent() {
